@@ -108,7 +108,7 @@
          point="org.talend.core.runtime.service">
       <Service
             class="org.talend.updates.runtime.service.UpdateService"
-            serviceId="org.talend.updates.runtime.service.UpdateService">
+            serviceId="IUpdateService">
       </Service>
    </extension>
 

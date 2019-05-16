@@ -70,10 +70,14 @@ public class UpdateService implements IUpdateService {
                 install(monitor, feature, messages);
             }
             if (messages.isOk()) {
+                System.out.println("------------------------------");
+                System.out.println(messages.getInstalledMessage());
+                System.out.println("------------------------------");
                 log.info(messages.getInstalledMessage());
                 return messages.isNeedRestart();
             }
             if (StringUtils.isNotEmpty(messages.getFailureMessage())) {
+                System.out.println(messages.getFailureMessage());
                 log.error(messages.getFailureMessage());
             }
         } catch (Exception e) {
