@@ -775,6 +775,7 @@ public class ModulesNeededProvider {
 	importNeedsListForRoutes.add(getModuleNeededForName("jaxb-runtime-2.3.2.jar"));
 	importNeedsListForRoutes.add(getModuleNeededForName("stax-ex-1.8.1.jar"));
 	importNeedsListForRoutes.add(getModuleNeededForName("txw2-2.3.2.jar"));
+	importNeedsListForRoutes.add(getModuleNeededForName("jakarta.jws-api-1.1.1.jar"));
     }
 
     /**
