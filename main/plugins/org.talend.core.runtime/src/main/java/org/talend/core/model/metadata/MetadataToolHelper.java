@@ -81,7 +81,6 @@ import org.talend.designer.core.model.utils.emf.talendfile.TalendFileFactory;
 import org.talend.repository.model.IProxyRepositoryFactory;
 import org.talend.repository.model.IRepositoryService;
 import org.talend.repository.model.RepositoryConstants;
-
 import orgomg.cwm.objectmodel.core.TaggedValue;
 
 /**
@@ -444,7 +443,8 @@ public final class MetadataToolHelper {
      */
     private static String mapSpecialChar(String columnName) {
         if (GlobalServiceRegister.getDefault().isServiceRegistered(IRoutinesService.class)) {
-            IRoutinesService service = GlobalServiceRegister.getDefault().getService(IRoutinesService.class);
+            IRoutinesService service =
+                    (IRoutinesService) GlobalServiceRegister.getDefault().getService(IRoutinesService.class);
             if (service != null) {
                 Vector map = service.getAccents();
                 map.setElementAt("AE", 4);//$NON-NLS-1$
@@ -767,7 +767,9 @@ public final class MetadataToolHelper {
             IGenericWizardService wizardService = null;
             if (!CommonsPlugin.isHeadless()
                     && GlobalServiceRegister.getDefault().isServiceRegistered(IGenericWizardService.class)) {
-                wizardService = GlobalServiceRegister.getDefault().getService(IGenericWizardService.class);
+                wizardService =
+                        (IGenericWizardService) GlobalServiceRegister.getDefault().getService(
+                                IGenericWizardService.class);
             }
             if (wizardService != null && wizardService.isGenericConnection(connection)) {
                 List<MetadataTable> metadataTables = wizardService.getMetadataTables(connection);
@@ -1310,7 +1312,8 @@ public final class MetadataToolHelper {
                         IRepositoryViewObject lastVersion = null;
                         if (connection.getContextId() != null) {
                             IRepositoryService service =
-                                    GlobalServiceRegister.getDefault().getService(IRepositoryService.class);
+                                    (IRepositoryService) GlobalServiceRegister.getDefault().getService(
+                                            IRepositoryService.class);
                             lastVersion = service.getProxyRepositoryFactory().getLastVersion(connection.getContextId());
                         }
                         if (lastVersion != null) {
@@ -1404,7 +1407,7 @@ public final class MetadataToolHelper {
     }
 
     public static IMetadataTable convert(MetadataTable old) {
-        ICoreService coreService = GlobalServiceRegister.getDefault().getService(ICoreService.class);
+        ICoreService coreService = (ICoreService) GlobalServiceRegister.getDefault().getService(ICoreService.class);
         IMetadataTable result = new org.talend.core.model.metadata.MetadataTable();
         result.setComment(old.getComment());
         result.setId(old.getId());
